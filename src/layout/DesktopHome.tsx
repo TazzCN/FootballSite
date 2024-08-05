@@ -1,8 +1,9 @@
 import { useAuthenticator } from "@aws-amplify/ui-react";
-import { AccountCircle, Home as HomeIcon, Search } from "@mui/icons-material";
+import { AccountCircle, Home as HomeIcon, People } from "@mui/icons-material";
 import {
   AppBar,
   Box,
+  Button,
   Container,
   IconButton,
   Menu,
@@ -11,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { APP_NAME } from "../consts/app";
 
 const DesktopHome = () => {
@@ -41,11 +42,19 @@ const DesktopHome = () => {
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               {APP_NAME}
             </Typography>
-            <IconButton color="inherit">
+            <Box paddingRight={2}>
+              <Button
+                color="inherit"
+                variant="outlined"
+                startIcon={<People />}
+                component={Link}
+                to="players"
+              >
+                Players
+              </Button>
+            </Box>
+            <IconButton color="inherit" component={Link} to="/">
               <HomeIcon />
-            </IconButton>
-            <IconButton color="inherit">
-              <Search />
             </IconButton>
             <IconButton
               edge="end"

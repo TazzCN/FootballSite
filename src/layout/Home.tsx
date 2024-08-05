@@ -1,24 +1,13 @@
-import {
-  createTheme,
-  CssBaseline,
-  ThemeProvider,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 
 import DesktopHome from "./DesktopHome";
 import MobileHome from "./MobileHome";
 
-const theme = createTheme();
-
 const Home = () => {
+  const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {isMobile ? <MobileHome /> : <DesktopHome />}
-    </ThemeProvider>
-  );
+  return <Box>{isMobile ? <MobileHome /> : <DesktopHome />}</Box>;
 };
 
 export default Home;
