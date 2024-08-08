@@ -19,6 +19,17 @@ const schema = a.schema({
       goals: a.integer(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
+  Pitch: a
+    .model({
+      id: a.id(),
+      name: a.string().required(),
+      streetAddress: a.string(),
+      postalCode: a.string(),
+      typeOfPitch: a.enum(["5Aside", "7Aside", "11Aside"]),
+      imagePath: a.string(),
+      price: a.float(),
+    })
+    .authorization((allow) => [allow.publicApiKey()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
