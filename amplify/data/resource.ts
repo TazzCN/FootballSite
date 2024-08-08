@@ -25,7 +25,7 @@ const schema = a.schema({
       name: a.string().required(),
       streetAddress: a.string(),
       postalCode: a.string(),
-      typeOfPitch: a.enum(["5Aside", "7Aside", "11Aside"]),
+      typeOfPitch: a.enum(["FIVE", "SEVEN", "ELEVEN"]),
       imagePath: a.string(),
       price: a.float(),
     })
